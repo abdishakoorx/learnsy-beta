@@ -7,10 +7,7 @@ function EventTypePage({ params }) {
     const { type } = params;
     const decodedType = decodeURIComponent(type.replace(/-/g, ' '));
     const capitalizedType = decodedType.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-
     const filteredEvents = events.filter(event => event.type.toLowerCase().replace(/ /g, '-') === type);
-
-    
 
     return (
         <div className="container px-4 py-8 mx-auto">
@@ -18,7 +15,6 @@ function EventTypePage({ params }) {
                 &larr; Back to Event Types
             </Link>
             <h1 className="mb-6 text-3xl font-bold">{capitalizedType}</h1>
-
             {filteredEvents.length > 0 ? (
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {filteredEvents.map((event) => (
